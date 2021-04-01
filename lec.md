@@ -130,4 +130,91 @@ db.<collection_name>.update({匹配条件}, {更新内容},
 
 如果使用不存在的名字，则将自动创建。
 
+#### $pop -> 出栈
 
+```json
+{
+    books: ['c']
+}
+```
+
+```js
+{
+    $pop: {
+        books: 1, // 1: 删除最后一个；-1：删除第一个
+    }
+}
+```
+
+#### $pullAll
+
+```json
+{
+    books: ['c']
+}
+```
+
+```js
+{
+    $pullAll: {
+        books: ['c', 'java'], // 1: 删除最后一个；-1：删除第一个
+    }
+}
+```
+
+### 批量添加
+
+```json
+{
+    books: ['c']
+}
+```
+
+```js
+{
+    $<update_opr>: {
+        books: {
+            $each: ["php", "SQL", "javascript"]
+        }
+    }
+}
+```
+
+### 数组定位器
+
+```json
+{
+    books: [
+        {
+            name: "book1",
+            price: 100
+        },
+        {
+            name: "book2",
+            price: 200
+        },
+        {
+            name: "book3",
+            price: 300
+        },
+    ]
+}
+```
+
+```js
+// 3种办法,待补充
+```
+
+## 删除文档
+
+```js
+db.<collection_name>.remove({查找条件}, [{justOne: true}只删除一条])
+```
+
+## 分组
+
+
+
+## 聚合
+
+## 映射-归并
