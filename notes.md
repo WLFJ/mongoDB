@@ -188,6 +188,11 @@ db.<collection_name>.find(
 }
 ```
 
+是数组，且非空
+```js
+{ $match: { writers: { $elemMatch: { $exists: true } } }
+```
+
 如果直接查询
 ```js
 {
@@ -301,3 +306,7 @@ db.<collection_name>.aggregation([ ...oprs...])
 ```js
 db.<collection_name>.createIndex({ ...just..like...sort...})
 ```
+
+## string operation
+
+* 分割字符串 split:['$field', '<splitter>']
