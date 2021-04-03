@@ -147,8 +147,9 @@ db.<collection_name>.insert([
 { $<opr>: [{...}, {...}] }
 ```
 * $not
+注意其并不能放在前面直接使用，而要在field中！
 ```json
-{ $<not>: {...} }
+{ field: { $not: { <operator-expression> } } }
 ```
 
 需要注意的是查询条件的大括号中要以key开头，而不能直接放条件（这样就不是dict了不是吗！）【做题有感】
